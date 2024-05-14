@@ -1,17 +1,17 @@
-# image:
-#   file: gitpod.Dockerfile
-image: gitpod/workspace-full
+ image:
+   file: gitpod.Dockerfile
+#image: gitpod/workspace-full
+
 tasks:
-  - name: hello
-    command: |
-      echo "hello gitpod/workspace-full"
-# tasks:
   # 初始化环境
-  # - init:
-  #       docker-compose -f ./baseEnvironment/docker-compose.yml up -d
-  # - init:
-  #     chmod +x *.sh
-  #     ./setup-tailscale.sh
+   - init:
+       docker-compose -f ./baseEnvironment/docker-compose.yml up -d
+   - init:
+       chmod +x *.sh
+       ./setup-tailscale.sh
+ports:
+  - name: ga
+    port: 3000
 #  - name: tailscaled
 #    command: |
 #      if [ -n "${TS_STATE_TAILSCALE_EXAMPLE}" ]; then

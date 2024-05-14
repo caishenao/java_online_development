@@ -1,22 +1,22 @@
 version: '3'
 services:
   #   mysql
-  #  mysql:
-  #    image: mysql:latest
-  #    container_name: mysql
-  #    ports:
-  #      - "3307:3306"
-  #    restart: always
-  #    environment:
-  #      - MYSQL_ROOT_PASSWORD=root
-  #      - TZ=Asia/Shanghai
-  #    volumes:
-  #      # 数据存放位置
-  #      - ./mysql/data/:/var/lib/mysql/
-  #      # 配置
-  #      - ./mysql/conf/:/etc/mysql/conf.d/
-  #      # 初始化sql脚本存放位置
-  #      - ./mysql/init/:/docker-entrypoint-initdb.d/
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - TZ=Asia/Shanghai
+    volumes:
+      # 数据存放位置
+      - ./mysql/data/:/var/lib/mysql/
+      # 配置
+      - ./mysql/conf/:/etc/mysql/conf.d/
+      # 初始化sql脚本存放位置
+      - ./mysql/init/:/docker-entrypoint-initdb.d/
 
   #  PGSQL
   #  postgres:
@@ -185,75 +185,75 @@ services:
   #      - ./emqx/conf/emqx.conf:/opt/emqx/etc/emqx.conf
 
   # jenkins
-    jenkins:
-      image: jenkins/jenkins:2.419-alpine-jdk17
-      container_name: jenkins
-      ports:
-        - "8080:8080"
-      restart: always
-#      environment:
-#        - ADMIN_USERNAME=admin
-#        - ADMIN_PASSWORD=admin
-#        - JAVA_OPTS=-Duser.timezone=Asia/Shanghai
-#        - JENKINS_UC=http://mirrors.jenkins.io/
+#  jenkins:
+#    image: jenkins/jenkins:2.419-alpine-jdk17
+#    container_name: jenkins
+#    ports:
+#      - "8080:8080"
+#    restart: always
+  #      environment:
+  #        - ADMIN_USERNAME=admin
+  #        - ADMIN_PASSWORD=admin
+  #        - JAVA_OPTS=-Duser.timezone=Asia/Shanghai
+  #        - JENKINS_UC=http://mirrors.jenkins.io/
 
-#      volumes:
-#        - ./jenkins/data:/var/jenkins_home
-#        - ./jenkins/logs:/var/log/jenkins
-#        - ./jenkins/plugins:/var/jenkins_home/plugins
+  #      volumes:
+  #        - ./jenkins/data:/var/jenkins_home
+  #        - ./jenkins/logs:/var/log/jenkins
+  #        - ./jenkins/plugins:/var/jenkins_home/plugins
 
   # prometheus
-#  prometheus:
-#    image: prom/prometheus:main
-#    container_name: prometheus
-#    ports:
-#      - "9090:9090"
-#    restart: always
-#    volumes:
-#      - ./prometheus/data/:/prometheus
-#      - ./prometheus/conf/prometheus.yml/:/etc/prometheus/prometheus.yml
-#      - ./prometheus/logs/:/var/log/prometheus/
-#      - ./prometheus/rules/:/etc/prometheus/rules/
-#    depends_on:
-#      - grafana
-#      - prometheus-node-exporter
+  prometheus:
+    image: prom/prometheus:main
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    restart: always
+    volumes:
+      - ./prometheus/data/:/prometheus
+      - ./prometheus/conf/prometheus.yml/:/etc/prometheus/prometheus.yml
+      - ./prometheus/logs/:/var/log/prometheus/
+      - ./prometheus/rules/:/etc/prometheus/rules/
+    depends_on:
+      - grafana
+      - prometheus-node-exporter
 
   # grafana/grafana
-#  grafana:
-#    image: grafana/grafana
-#    container_name: grafana
-#    ports:
-#      - "3000:3000"
-#    restart: always
-#    environment:
-#      - GF_SECURITY_ADMIN_PASSWORD=admin
-#      - GF_USERS_ALLOW_SIGN_UP=false
-#    volumes:
-#      - ./grafana/data/:/var/lib/grafana
-#      - ./grafana/logs/:/var/log/grafana
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    restart: always
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - ./grafana/data/:/var/lib/grafana
+      - ./grafana/logs/:/var/log/grafana
 
-  # prometheus-node-exporter
-#  prometheus-node-exporter:
-#    image: prom/node-exporter:master
-#    container_name: prometheus-node-exporter
-#    ports:
-#      - "9100:9100"
-#    restart: always
+#   prometheus-node-exporter
+  prometheus-node-exporter:
+    image: prom/node-exporter:master
+    container_name: prometheus-node-exporter
+    ports:
+      - "9100:9100"
+    restart: always
 
-  # mysql-exporter
-#  mysql-exporter:
-#    image: prom/mysqld-exporter:latest
-#    container_name: mysql-exporter
-#    ports:
-#      - "9104:9104"
-#    restart: always
-#    environment:
-##      - DATA_SOURCE_NAME=root:root@tcp(host.docker.internal:3306)
-#      - DATA_SOURCE_NAME=root:ea63dedac38943599aed261cdd302e8e@tcp(123.6.102.119:23306)
-#    volumes:
-#      - ./mysql-exporter/data/:/prometheus
-#      - ./mysql-exporter/logs/:/var/log/mysqld-exporter/
-#      - ./mysql-exporter/conf/.my.cnf:/.my.cnf
+#   mysql-exporter
+  mysql-exporter:
+    image: prom/mysqld-exporter:latest
+    container_name: mysql-exporter
+    ports:
+      - "9104:9104"
+    restart: always
+    environment:
+#      - DATA_SOURCE_NAME=root:root@tcp(host.docker.internal:3306)
+      - DATA_SOURCE_NAME=root:root@tcp(mysql:3306)
+    volumes:
+      - ./mysql-exporter/data/:/prometheus
+      - ./mysql-exporter/logs/:/var/log/mysqld-exporter/
+      - ./mysql-exporter/conf/.my.cnf:/.my.cnf
   # pgsql-exporter
 #  pgsql-exporter:
 #    image: prometheuscommunity/postgres-exporter:latest
