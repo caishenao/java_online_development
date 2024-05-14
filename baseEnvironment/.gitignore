@@ -1,0 +1,7 @@
+./consul/logs/*
+./mysql/data/*
+./postgres/data/*
+./rabbitmq/data/*
+./rabbitmq/logs/*
+./redis/data/*
+./redis/logs/*
