@@ -29,3 +29,6 @@ replay_pid*
 ./baseEnvironment/rabbitmq/logs/*
 ./baseEnvironment/redis/data/*
 ./baseEnvironment/redis/logs/*
+
+.idea/**
+.vscode/**
