@@ -10,9 +10,12 @@ tasks:
        chmod +x *.sh
        ./setup-tailscale.sh
 ports:
-  - name: ga
+  - name: grafana
     port: 3000
-#  - name: tailscaled
+    onOpen: open-browser
+  - name: mysql
+    port: 3306
+ #  - name: tailscaled
 #    command: |
 #      if [ -n "${TS_STATE_TAILSCALE_EXAMPLE}" ]; then
 #        # restore the tailscale state from gitpod user's env vars

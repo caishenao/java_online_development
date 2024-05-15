@@ -1,22 +1,22 @@
 version: '3'
 services:
   #   mysql
-  mysql:
-    image: mysql:latest
-    container_name: mysql
-    ports:
-      - "3306:3306"
-    restart: always
-    environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - TZ=Asia/Shanghai
-    volumes:
-      # 数据存放位置
-      - ./mysql/data/:/var/lib/mysql/
-      # 配置
-      - ./mysql/conf/:/etc/mysql/conf.d/
-      # 初始化sql脚本存放位置
-      - ./mysql/init/:/docker-entrypoint-initdb.d/
+#  mysql:
+#    image: mysql:latest
+#    container_name: mysql
+#    ports:
+#      - "3306:3306"
+#    restart: always
+#    environment:
+#      - MYSQL_ROOT_PASSWORD=root
+#      - TZ=Asia/Shanghai
+#    volumes:
+#      # 数据存放位置
+#      - ./mysql/data/:/var/lib/mysql/
+#      # 配置
+#      - ./mysql/conf/:/etc/mysql/conf.d/
+#      # 初始化sql脚本存放位置
+#      - ./mysql/init/:/docker-entrypoint-initdb.d/
 
   #  PGSQL
   #  postgres:
@@ -241,19 +241,19 @@ services:
     restart: always
 
 #   mysql-exporter
-  mysql-exporter:
-    image: prom/mysqld-exporter:latest
-    container_name: mysql-exporter
-    ports:
-      - "9104:9104"
-    restart: always
-    environment:
-#      - DATA_SOURCE_NAME=root:root@tcp(host.docker.internal:3306)
-      - DATA_SOURCE_NAME=root:root@tcp(mysql:3306)
-    volumes:
-      - ./mysql-exporter/data/:/prometheus
-      - ./mysql-exporter/logs/:/var/log/mysqld-exporter/
-      - ./mysql-exporter/conf/.my.cnf:/.my.cnf
+#  mysql-exporter:
+#    image: prom/mysqld-exporter:latest
+#    container_name: mysql-exporter
+#    ports:
+#      - "9104:9104"
+#    restart: always
+#    environment:
+##      - DATA_SOURCE_NAME=root:root@tcp(host.docker.internal:3306)
+#      - DATA_SOURCE_NAME=root:root@tcp(mysql:3306)
+#    volumes:
+#      - ./mysql-exporter/data/:/prometheus
+#      - ./mysql-exporter/logs/:/var/log/mysqld-exporter/
+#      - ./mysql-exporter/conf/.my.cnf:/.my.cnf
   # pgsql-exporter
 #  pgsql-exporter:
 #    image: prometheuscommunity/postgres-exporter:latest
