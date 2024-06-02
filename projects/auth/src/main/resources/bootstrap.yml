@@ -1,0 +1,7 @@
+server:
+  port: 60101
+spring:
+  application:
+    name: auth
+  profiles:
+    active: dev

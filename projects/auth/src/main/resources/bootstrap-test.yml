@@ -1,0 +1,45 @@
+# 测试环境
+spring:
+  cloud:
+    consul:
+      host: 127.0.0.1
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}-${spring.profiles.active}
+        enabled: true
+        register: true
+        tags:
+          - 开发环境
+          - 基础权限
+
+      config:
+        enabled: true
+        # 环境分割符
+        profile-separator: '-'
+        # 格式
+        format: yaml
+        # 自动刷新
+        watch:
+          enabled: true
+          wait-time: 1000
+        data-key: ${spring.application.name}-${spring.profiles.active}
+        default-context: ${spring.application.name}
+
+# springdoc-openapi项目配置
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: com.xiaominfo.knife4j.demo.web
+# knife4j的增强配置，不需要增强可以不配
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+
