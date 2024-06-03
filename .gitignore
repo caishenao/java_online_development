@@ -29,6 +29,8 @@ replay_pid*
 ./baseEnvironment/rabbitmq/logs/*
 ./baseEnvironment/redis/data/*
 ./baseEnvironment/redis/logs/*
-
+./baseEnvironment/prometheus/data/**
+./baseEnvironment/prometheus/logs/*
+./baseEnvironment/minio/data/*
 .idea/**
 .vscode/**
