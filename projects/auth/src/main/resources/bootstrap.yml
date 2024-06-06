@@ -5,3 +5,7 @@ spring:
     name: auth
   profiles:
     active: dev
+loki:
+  url: http://localhost:3100/loki/api/v1/push
+logging:
+  config: classpath:logback-spring.xml
