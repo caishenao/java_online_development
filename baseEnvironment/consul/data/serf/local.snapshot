@@ -1,0 +1,18 @@
+alive: consul-node 172.31.0.2:8301
+event-clock: 1
+alive: consul-node 172.31.0.2:8301
+event-clock: 2
+alive: consul-node 172.18.0.2:8301
+event-clock: 3
+alive: consul-node 172.18.0.2:8301
+event-clock: 4
+alive: consul-node 172.18.0.2:8301
+event-clock: 5
+alive: consul-node 172.20.0.2:8301
+event-clock: 6
+alive: consul-node 172.20.0.2:8301
+event-clock: 7
+alive: consul-node 172.20.0.2:8301
+event-clock: 8
+alive: consul-node 172.20.0.2:8301
+event-clock: 9

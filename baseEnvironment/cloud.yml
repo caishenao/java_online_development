@@ -1,0 +1,22 @@
+# 微服务相关的中间件
+version: '3.0'
+services:
+  consul:
+    image: consul:1.15.4
+    container_name: consul
+    ports:
+      - "8500:8500"
+      - "8600:8600/udp"
+    restart: always
+    volumes:
+      - ./consul/config:/consul/config
+      - ./consul/data:/consul/data
+      - ./consul/logs:/consul/logs
+    command: consul agent -server -bootstrap-expect=1 -client=0.0.0.0 -ui -bind='{{ GetPrivateIP }}' -data-dir=/consul/data -node=consul-node -datacenter=dc1 -log-level=debug -enable-script-checks=true -config-dir=/consul/config
+
+
+
+# 使用外部的网络
+networks:
+  basics:
+    external: true

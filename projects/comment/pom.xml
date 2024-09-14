@@ -3,13 +3,10 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>cn.cai</groupId>
-        <artifactId>projects</artifactId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
 
+    <groupId>cn.cai</groupId>
     <artifactId>comment</artifactId>
+    <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <description>基础服务</description>
     <modules>
@@ -25,8 +22,7 @@
         <spring-cloud.version>2023.0.0</spring-cloud.version>
         <spring-boot.version>3.2.0</spring-boot.version>
         <lang3.version>3.14.0</lang3.version>
-        <lombok.version>1.18.12</lombok.version>
-
+        <lombok.version>1.18.30</lombok.version>
         <fastjson2.verison>2.0.50</fastjson2.verison>
         <loki.version>1.5.1</loki.version>
     </properties>
@@ -41,6 +37,14 @@
                 <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.camunda.bpm</groupId>
+                <artifactId>camunda-bom</artifactId>
+                <version>7.21.0</version>
+                <scope>import</scope>
+                <type>pom</type>
             </dependency>
 
             <dependency>
@@ -85,4 +89,17 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+
+<!--    <distributionManagement>-->
+<!--        <repository>-->
+<!--            <id>nexus-releases</id>-->
+<!--            <url>http://localhost:8081/repository/maven-releases/</url>-->
+<!--        </repository>-->
+<!--        <snapshotRepository>-->
+<!--            <id>nexus-snapshots</id>-->
+<!--            <url>http://localhost:8081/repository/maven-snapshots/</url>-->
+<!--        </snapshotRepository>-->
+<!--    </distributionManagement>-->
+
 </project>

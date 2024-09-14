@@ -1,0 +1,26 @@
+# oss相关docker配置
+version: '3.0'
+services:
+  minio:
+    image: minio/minio
+    container_name: minio
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    restart: always
+    command: minio server /data/data{1...4} --console-address ":9001"
+    environment:
+      - MINIO_ROOT_USER=minio
+      - MINIO_ROOT_PASSWORD=minio123456
+      - TZ=Asia/Shanghai
+      - MINIO_ACCESS_KEY=minio
+      - MINIO_SECRET_KEY=minio123456
+    volumes:
+      - ./minio/data/:/data
+    networks:
+      - basics
+
+# 依赖已经创建好的网络
+networks:
+  basics:
+    external: true

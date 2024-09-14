@@ -1,0 +1,144 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: workflow
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://123.6.102.119:15431/camunda?useSSL=false&serverTimezone=Hongkong&characterEncoding=utf-8&autoReconnect=true
+    username: postgres
+    password: 687315e66ae24eeab8bb5c0441a40d79
+  security:
+    oauth2:
+      client:
+        registration:
+          casdoor:
+            client-id: camunda
+            client-secret: camunda
+            scope: read,write
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:8080/login/oauth2/code/custom
+        provider:
+          casdoor:
+            authorization-uri: http://localhost:8000/login/oauth/authorize
+            token-uri: http://localhost:8000/api/login/oauth/access_token
+            user-info-uri: http://localhost:8000/api/get-account
+            user-name-attribute: name
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          oidc:
+#            client-id: camunda
+#            client-secret: camunda
+#            scope: openid, profile, email
+#            authorization-grant-type: authorization_code
+#            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+#            client-name: OIDC
+#        provider:
+#          oidc:
+#            issuer-uri: http://100.74.79.3:8000/.well-known/openid-configuration
+
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          oidc:
+#            client-id: camunda
+#            client-secret: camunda
+#            scope: openid, profile, email
+#            authorization-grant-type: authorization_code
+#            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+#            client-name: OIDC
+#        provider:
+#          oidc:
+#            issuer-uri: http://100.74.79.3:8000/.well-known/openid-configuration
+camunda:
+  bpm:
+    admin-user:
+      id: demo
+      password: demo
+      first-name: demo
+      last-name: demo
+    database:
+      schema-update: true
+    authorization:
+      enabled: true
+      enabled-for-custom-code: false
+    webapp:
+      session-cookie:
+        enable-secure-cookie: true
+#      enabled-for-custom-code: true
+
+org:
+  camunda:
+    bpm:
+      engine:
+        rest:
+          jackson:
+            dateFormat: yyyy-MM-dd HH:mm:ss
+
+casdoor:
+  application-name: camunda
+  client-id: camunda
+  client-secret: camunda
+  endpoint: http://localhost:8000
+  certificate: |
+    -----BEGIN CERTIFICATE-----
+    MIIE3zCCAsegAwIBAgIDAeJAMA0GCSqGSIb3DQEBCwUAMCkxETAPBgNVBAoTCGJ1
+    aWx0LWluMRQwEgYDVQQDDAtjZXJ0Xzh3cnEyNTAeFw0yNDA5MTIwMTU0NTFaFw00
+    NDA5MTIwMTU0NTFaMCkxETAPBgNVBAoTCGJ1aWx0LWluMRQwEgYDVQQDDAtjZXJ0
+    Xzh3cnEyNTCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAL6Z9xyT5NLJ
+    Wmufo3GdmiTnTcJYbw4mfR+MNlNTC3ycKs3MqMov9oeNJyrglU9lQ4iZC7Wbqvea
+    f3sR4XR2dEBPkepq6VDjrY4h44nt5wFzQuRvMlZC5HTDIG8iNXN609XCx82X1aOc
+    tIYUgpvq/hiFDAawDG3ccmG05VA05VrA0TJ/TetzrvTeapc2YgHLzvhwieuMhPh+
+    dNc2fA8jE7MHwdFl2aUDEjaRmN2+YCKp19rFVX5HAPrpVdPMnlRUkpQZdB49yTTv
+    CYU0PsL/Sp+f1zbeKM8PnlW6ra3+D2FdQEdTbD8ryL1lDulMBw/lOZM8SEXmNSvH
+    Mrew2Rru0O4vDpGfWrgbaU6wDv6carCW9xdBSJF6/l/uyGgSuvghcIyk6o3HV4uS
+    PHHnZKcdsB3agwJ1/smCWV0cgY50ncWYaa+DJGbZpo6gaTHgIfBFaeNOYjOs4aFB
+    70h4MPCUeHODsAJSGuRtjkbMgehPTh42Dd4hH9aGGbUt8+/3JoYQp/X4KMb9Tvi5
+    tSnhrBH+1P44kqkTe7i+rzWBMfbEXx8fN8+OjwW06md2gaODAW+JxvL5okgXOh72
+    Q79XvXsGQV7VIRg9mwIjd1YzHpnZEW5PR7iI4JKA8NT7BUi/KhHPPb8ONbPAboKV
+    lzZPRzo9rItfuxM82szAG1bjX7+zgenLAgMBAAGjEDAOMAwGA1UdEwEB/wQCMAAw
+    DQYJKoZIhvcNAQELBQADggIBABZRrMLYZ5FobGiiAM00oXjUjWb14JlnBqAAaecw
+    vX1F7xLbEH0XEMN4N3qUhxsfBGmNUr96eCYaGAdBzcveJJm/cJC/5agwnpJpw23H
+    yeXlcuOxRNHBCiiOOeEmQhUQomwD9mxKVEEUvZ3t/sFJbQs9FoILCf+HxUvCD8hR
+    P8XtJU/iWQnjaWcrVpt4oTypTTd2yYrjEZZL98ntWQqrW1ChbqTJo9pPlIe3AqfV
+    nk2DCvBdhcX/wWkAho1fmuzzq090+rFcWJ4vPLw+8HUUu97rRighymUplN0PCUpg
+    3UrWvVOUNVQ/ngQfzNU0p6+vGPOXYTZKLuz1Q+FyKT4oJUfSlbW7fXe7BpZYMpVp
+    /IKu5sqTB0BYJALgbZ5m3nRjoxc9NXl+Ek+FHP32Gc1D/p+JRJZLzb4wIo/i+mnx
+    JhmdYBEOFndN1ZHisqtUJf23oRXcQZD/SO/8eXkTG47yJ5k/NM1gL7ySxynnsMtZ
+    QG+ziILjymDYe11N4lwX/UYwgL+IBRgbeFzuUhwGKr7gtc7LtWc4Z+NPgjekucU5
+    htebDoxEV45iV4OQ3u4+jRXjW1JfIt9FaiyxUjfEPTpUjppswCtavx1NA5s0ESMT
+    S/ljwm8TIP1NkX1DqbCNuuuz19YqvEMXzHOuF9eT081YAOluNElji6K9okSAjFwn
+    w2bX
+    -----END CERTIFICATE-----
+  organization-name: built-in
+  redirect-uri: http://localhost:8080/callback
+#logging:
+#  level:
+#     org.camunda.bpm: DEBUG
+#     org.camunda.bpm.engine: DEBUG
+#     org.camunda.bpm.engine.impl: DEBUG
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+    urls:
+      - url: http://localhost:8080/openapi.json
+        name: camunda
+      - url: http://localhost:8080/v3/api-docs
+        name: customize
+  api-docs:
+    path: /v3/api-docs
+    enabled: true
+#  group-configs:
+#    - group: default
+#      packages-to-scan: cn.cai
+#      paths-to-exclude: /actuator/**
+#    - group: openapi.json
+#      packages-to-scan: org.camunda.bpm
+#      paths-to-exclude: /engine-rest/**

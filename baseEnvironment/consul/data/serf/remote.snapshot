@@ -1,0 +1,9 @@
+alive: consul-node.dc1 172.31.0.2:8302
+alive: consul-node.dc1 172.31.0.2:8302
+alive: consul-node.dc1 172.18.0.2:8302
+alive: consul-node.dc1 172.18.0.2:8302
+alive: consul-node.dc1 172.18.0.2:8302
+alive: consul-node.dc1 172.20.0.2:8302
+alive: consul-node.dc1 172.20.0.2:8302
+alive: consul-node.dc1 172.20.0.2:8302
+alive: consul-node.dc1 172.20.0.2:8302
