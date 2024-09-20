@@ -26,17 +26,8 @@
             <artifactId>lombok</artifactId>
         </dependency>
         <dependency>
-            <groupId>cn.cai</groupId>
-            <artifactId>basic-comment</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -81,24 +72,34 @@
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.github.loki4j/loki-logback-appender -->
-<!--        <dependency>-->
-<!--            <groupId>com.github.loki4j</groupId>-->
-<!--            <artifactId>loki-logback-appender</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>com.github.loki4j</groupId>
+            <artifactId>loki-logback-appender</artifactId>
+        </dependency>
 
 
         <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
-<!--        <dependency>-->
-<!--            <groupId>com.google.guava</groupId>-->
-<!--            <artifactId>guava</artifactId>-->
-<!--            <version>33.3.0-jre</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>33.3.0-jre</version>
+        </dependency>
 
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
         </dependency>
 
 
@@ -113,11 +114,13 @@
             <artifactId>casdoor-spring-boot-starter</artifactId>
             <version>1.10.0</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.casbin/casdoor-java-sdk -->
         <dependency>
             <groupId>org.casbin</groupId>
             <artifactId>casdoor-java-sdk</artifactId>
             <version>1.22.1</version>
         </dependency>
+
     </dependencies>
 
     <build>

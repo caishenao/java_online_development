@@ -22,6 +22,7 @@
     <springProperty scope="context" name="jobName" source="loki.label.job-name" defaultValue="my-app"/>
     <springProperty scope="context" name="hostIp" source="loki.label.host-ip" defaultValue="localhost"/>
 
+    <!-- loki -->
 <!--    <appender name="LOKI" class="com.github.loki4j.logback.Loki4jAppender">-->
 <!--        <http class="com.github.loki4j.logback.ApacheHttpSender">-->
 <!--            <url>${url}</url>-->
@@ -32,7 +33,7 @@
 <!--            </label>-->
 <!--            <message>-->
 <!--                <pattern>-->
-<!--                    {"timestamp": "%d{yyyy-MM-dd HH:mm:ss.SSS}", "level": "%level", "logger": "%logger{36}", "thread": "%thread", "message": "%msg%n"}-->
+<!--                    {"timestamp": "%d{yyyy-MM-dd HH:mm:ss.SSS}","level": "%level", "logger": "%logger{36}", "thread": "%thread", "message": "%msg%n"}-->
 <!--                </pattern>-->
 <!--            </message>-->
 <!--            <sortByTime>true</sortByTime>-->

@@ -39,3 +39,7 @@ scrape_configs:
     static_configs:
       - targets:
           - 'loki:3100'
+  - job_name: 'casdoor' # 要监控的应用程序的名称
+    static_configs:
+      - targets: [ 'casdoor:8000' ] # Casdoor部署的后端地址
+    metrics_path: '/api/metrics' # 收集指标的路径

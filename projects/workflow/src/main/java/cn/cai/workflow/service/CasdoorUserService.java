@@ -18,6 +18,21 @@ public class CasdoorUserService extends UserService {
         super(config);
     }
 
+
+    public String getCaptcha() {
+        Map<String,String> paramsMap = new HashMap<>();
+        paramsMap.put("applicationId", "jwt/captcha");
+        paramsMap.put("isCurrentProvider", "true");
+        CasdoorResponse<String, Object> response = null;
+        try {
+            response = doGet("/get-captcha", paramsMap,new TypeReference<CasdoorResponse<String, Object>>() {
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return response.getData();
+    }
+
     /**
      * 登录获取授权码
      * @param loginReq 登录请求
@@ -30,18 +45,23 @@ public class CasdoorUserService extends UserService {
         paramsMap.put("responseType", "code");
         paramsMap.put("redirectUri", "http://localhost:8080/test/callback");
         paramsMap.put("scope", "read");
-        paramsMap.put("state", "camunda");
+        paramsMap.put("type", "code");
+        paramsMap.put("state", "hyurx1s9bpt");
+        paramsMap.put("nonce", "");
         paramsMap.put("code_challenge_method", "");
         paramsMap.put("code_challenge", "");
 
         Map<String,String> bodyMap = new HashMap<>();
         bodyMap.put("application",config.applicationName);
-        bodyMap.put("autoSignin", "true");
         bodyMap.put("organization",config.organizationName);
+        bodyMap.put("username",loginReq.getUsername());
+        bodyMap.put("autoSignin", "true");
         bodyMap.put("password",loginReq.getPassword());
+        bodyMap.put("captchaType","Default");
+        bodyMap.put("captchaToken",loginReq.getCode());
+        bodyMap.put("clientSecret", config.clientSecret);
         bodyMap.put("signinMethod", "Password");
         bodyMap.put("type", "code");
-        bodyMap.put("username",loginReq.getUsername());
 
         CasdoorResponse<String, String> response = null;
         try {

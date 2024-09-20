@@ -33,6 +33,8 @@ services:
       - ./postgres/data/:/var/lib/postgresql/data/
       - ./postgres/conf/:/etc/postgresql/
       - ./postgres/init/:/docker-entrypoint-initdb.d/
+    networks:
+      - basics
 
   redis:
     image: redis

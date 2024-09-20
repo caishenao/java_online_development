@@ -6,25 +6,25 @@ spring:
     name: workflow
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://123.6.102.119:15431/camunda?useSSL=false&serverTimezone=Hongkong&characterEncoding=utf-8&autoReconnect=true
+    url: jdbc:postgresql://123.6.102.119:5432/camunda?useSSL=false&serverTimezone=Hongkong&characterEncoding=utf-8&autoReconnect=true
     username: postgres
     password: 687315e66ae24eeab8bb5c0441a40d79
-  security:
-    oauth2:
-      client:
-        registration:
-          casdoor:
-            client-id: camunda
-            client-secret: camunda
-            scope: read,write
-            authorization-grant-type: authorization_code
-            redirect-uri: http://localhost:8080/login/oauth2/code/custom
-        provider:
-          casdoor:
-            authorization-uri: http://localhost:8000/login/oauth/authorize
-            token-uri: http://localhost:8000/api/login/oauth/access_token
-            user-info-uri: http://localhost:8000/api/get-account
-            user-name-attribute: name
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          casdoor:
+#            client-id: camunda
+#            client-secret: camunda
+#            scope: read,write
+#            authorization-grant-type: authorization_code
+#            redirect-uri: http://localhost:8080/login/oauth2/code/custom
+#        provider:
+#          casdoor:
+#            authorization-uri: http://localhost:8000/login/oauth/authorize
+#            token-uri: http://localhost:8000/api/login/oauth/access_token
+#            user-info-uri: http://localhost:8000/api/get-account
+#            user-name-attribute: name
 #  security:
 #    oauth2:
 #      client:
@@ -63,65 +63,57 @@ camunda:
       last-name: demo
     database:
       schema-update: true
+      type: postgres
     authorization:
       enabled: true
       enabled-for-custom-code: false
     webapp:
       session-cookie:
         enable-secure-cookie: true
-#      enabled-for-custom-code: true
-
-org:
-  camunda:
-    bpm:
-      engine:
-        rest:
-          jackson:
-            dateFormat: yyyy-MM-dd HH:mm:ss
 
 casdoor:
   application-name: camunda
-  client-id: camunda
-  client-secret: camunda
-  endpoint: http://localhost:8000
+  client-id: 0a5975cbaf647a19befa
+  client-secret: 21be16dc64c2fdda83dcea16361d5d2dad968fe7
+#  endpoint: http://localhost:8000
+  endpoint: http://123.6.102.119:8000
   certificate: |
     -----BEGIN CERTIFICATE-----
-    MIIE3zCCAsegAwIBAgIDAeJAMA0GCSqGSIb3DQEBCwUAMCkxETAPBgNVBAoTCGJ1
-    aWx0LWluMRQwEgYDVQQDDAtjZXJ0Xzh3cnEyNTAeFw0yNDA5MTIwMTU0NTFaFw00
-    NDA5MTIwMTU0NTFaMCkxETAPBgNVBAoTCGJ1aWx0LWluMRQwEgYDVQQDDAtjZXJ0
-    Xzh3cnEyNTCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAL6Z9xyT5NLJ
-    Wmufo3GdmiTnTcJYbw4mfR+MNlNTC3ycKs3MqMov9oeNJyrglU9lQ4iZC7Wbqvea
-    f3sR4XR2dEBPkepq6VDjrY4h44nt5wFzQuRvMlZC5HTDIG8iNXN609XCx82X1aOc
-    tIYUgpvq/hiFDAawDG3ccmG05VA05VrA0TJ/TetzrvTeapc2YgHLzvhwieuMhPh+
-    dNc2fA8jE7MHwdFl2aUDEjaRmN2+YCKp19rFVX5HAPrpVdPMnlRUkpQZdB49yTTv
-    CYU0PsL/Sp+f1zbeKM8PnlW6ra3+D2FdQEdTbD8ryL1lDulMBw/lOZM8SEXmNSvH
-    Mrew2Rru0O4vDpGfWrgbaU6wDv6carCW9xdBSJF6/l/uyGgSuvghcIyk6o3HV4uS
-    PHHnZKcdsB3agwJ1/smCWV0cgY50ncWYaa+DJGbZpo6gaTHgIfBFaeNOYjOs4aFB
-    70h4MPCUeHODsAJSGuRtjkbMgehPTh42Dd4hH9aGGbUt8+/3JoYQp/X4KMb9Tvi5
-    tSnhrBH+1P44kqkTe7i+rzWBMfbEXx8fN8+OjwW06md2gaODAW+JxvL5okgXOh72
-    Q79XvXsGQV7VIRg9mwIjd1YzHpnZEW5PR7iI4JKA8NT7BUi/KhHPPb8ONbPAboKV
-    lzZPRzo9rItfuxM82szAG1bjX7+zgenLAgMBAAGjEDAOMAwGA1UdEwEB/wQCMAAw
-    DQYJKoZIhvcNAQELBQADggIBABZRrMLYZ5FobGiiAM00oXjUjWb14JlnBqAAaecw
-    vX1F7xLbEH0XEMN4N3qUhxsfBGmNUr96eCYaGAdBzcveJJm/cJC/5agwnpJpw23H
-    yeXlcuOxRNHBCiiOOeEmQhUQomwD9mxKVEEUvZ3t/sFJbQs9FoILCf+HxUvCD8hR
-    P8XtJU/iWQnjaWcrVpt4oTypTTd2yYrjEZZL98ntWQqrW1ChbqTJo9pPlIe3AqfV
-    nk2DCvBdhcX/wWkAho1fmuzzq090+rFcWJ4vPLw+8HUUu97rRighymUplN0PCUpg
-    3UrWvVOUNVQ/ngQfzNU0p6+vGPOXYTZKLuz1Q+FyKT4oJUfSlbW7fXe7BpZYMpVp
-    /IKu5sqTB0BYJALgbZ5m3nRjoxc9NXl+Ek+FHP32Gc1D/p+JRJZLzb4wIo/i+mnx
-    JhmdYBEOFndN1ZHisqtUJf23oRXcQZD/SO/8eXkTG47yJ5k/NM1gL7ySxynnsMtZ
-    QG+ziILjymDYe11N4lwX/UYwgL+IBRgbeFzuUhwGKr7gtc7LtWc4Z+NPgjekucU5
-    htebDoxEV45iV4OQ3u4+jRXjW1JfIt9FaiyxUjfEPTpUjppswCtavx1NA5s0ESMT
-    S/ljwm8TIP1NkX1DqbCNuuuz19YqvEMXzHOuF9eT081YAOluNElji6K9okSAjFwn
-    w2bX
+    MIIE1TCCAr2gAwIBAgIDAeJAMA0GCSqGSIb3DQEBCwUAMCQxDDAKBgNVBAoTA2p3
+    dDEUMBIGA1UEAwwLY2VydF90OTFldnQwHhcNMjQwOTE4MDYxODAzWhcNNDQwOTE4
+    MDYxODAzWjAkMQwwCgYDVQQKEwNqd3QxFDASBgNVBAMMC2NlcnRfdDkxZXZ0MIIC
+    IjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAxRpszZPhglGg0d1w1x2wRUB6
+    3dVgWM99MyDiS0jeWigzix5TgRsDfauqBYLQ17BDdF/o36O1PDGuHlcIbf2AbKw5
+    rTA9wWTGp/W1DerXAbHbwgw/A/E5UUz2m7wxV20K+oto7JNw0SABlSi3rPO0FXyy
+    spr/JGvjErxfKa7STlPRlQdbvfeGB7gwegLqnk1/Kocpk12Gd7fWrHHmfVmY2gnI
+    1aFCwBECZPltGJsyyF/ypVXRa4hNpZSbgtPljo1wXPncMmn/MY0M6aojc6GLnwNY
+    rkZs4dp22BpHHuHwgRcD9Up/N9kUkyMcicQPh7fI/fLhYnRe3z9grxf8ddoAK4Gs
+    lKb0/gmm9cmA1ASMwYrUM6uPPz5451BvmtPLuebt3XqTTYn/P/YTh70Os90CeB8g
+    SkjGGChywJTXmAP0BaBRLrKaCce0xTiI9ltYs/0bhf17Y4/T2UVixQxh2JZtHLK1
+    UNC+zACjU6erQg5ELS8UIpOL6ix89TB0MnpcQ8cA+AHEhPTRUGNLxoNCbAXFx7bc
+    4Dn/HpT/dv4eDyR3RAkOuX0wQMsXj3UOJ8UXjpc/+RbBcG2uu66Bp1+9hRzT5SDq
+    TGt1I1FE16Exs5Z50j1Ou6844KnMxO6P2v8bg3JbFxM8puuAzSVm7RUUFME/Rzsu
+    Bxlol2s6uJ8bUfyJraUCAwEAAaMQMA4wDAYDVR0TAQH/BAIwADANBgkqhkiG9w0B
+    AQsFAAOCAgEAo47TJlBhOixc1HF52PoNoTDooQGCbJBZfiBUABkCBH97Y4UQdlwv
+    EjArd5106zhQURlxWe1ZONyBUtffn5UFQLN2UjmiMXR4zZTyFQIYrglYJcbuGD1j
+    pEdGDSqINi0+r58zBzdLaAwM/Ot8dBBzW3FPJgxn81WmcSC58DkkFrsjU/4qeb3J
+    rihAl+dHLDg1w5dWVNBbsgPjbFnQVuRD/CI6cfmi23asK2fWUsCzhUjEK4Kn+B/u
+    xwsL22OAdyEyuGaV+RV9MXI/52DlvklxRxQkXG5GvdqXB/Tsq+HEj92+/K/gGA0a
+    BREXzCr6fO77Kvb+y2aDt+05d7r58WNagG6uPmGxmyWLS+1jof61QAuoMVVeoUgb
+    N7Kk8iCE3xmebNSXvcYZqFiQ4RrGgz6QRKFGg0vGUR/aKpkfm20PY8cjUY5n3u41
+    LX6HtoXLh9BFqV/wYrbbPj6fFT6cH9h0NmnO33QwU+8a3mamOuhGuBJnbAVjBwTm
+    JIRcb5w4HlVsAATce46JbbPUfyjt5uoncV+GNmQnGS+Dg3epvpd6rD42oevvDAl5
+    9oBhU+xMM3TY1PdbVUUgfZXfkFeK6sE2msd6L7xKHJ1lu5EXOQD+M0YW/iqAPPQN
+    qetuxljzNKcTpGrefgt20Y6tv/Ir5PTOm4xJxeZ2PhVwUuPde8XP7EQ=
     -----END CERTIFICATE-----
-  organization-name: built-in
-  redirect-uri: http://localhost:8080/callback
+  organization-name: jwt
 #logging:
 #  level:
 #     org.camunda.bpm: DEBUG
 #     org.camunda.bpm.engine: DEBUG
 #     org.camunda.bpm.engine.impl: DEBUG
 
+# swagger ui 配置
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
@@ -135,10 +127,7 @@ springdoc:
   api-docs:
     path: /v3/api-docs
     enabled: true
-#  group-configs:
-#    - group: default
-#      packages-to-scan: cn.cai
-#      paths-to-exclude: /actuator/**
-#    - group: openapi.json
-#      packages-to-scan: org.camunda.bpm
-#      paths-to-exclude: /engine-rest/**
+logging:
+  config: classpath:logback.xml
+  level:
+    org.camunda: DEBUG

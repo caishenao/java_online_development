@@ -1,0 +1,12 @@
+version: "3.0"
+services:
+  rancher:
+    image: rancher/rancher:v2.9.2-alpha6
+    restart: unless-stopped
+    container_name: rancher
+    privileged: true
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./rancher/data:/var/lib/rancher

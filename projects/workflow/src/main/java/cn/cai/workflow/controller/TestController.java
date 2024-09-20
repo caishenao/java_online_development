@@ -1,5 +1,6 @@
 package cn.cai.workflow.controller;
 
+import cn.cai.web.comment.response.ResponseData;
 import cn.cai.workflow.pojo.req.LoginReq;
 import cn.cai.workflow.service.CasdoorUserService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -25,25 +26,18 @@ public class TestController {
 
     @PostMapping("/login")
     @Operation(summary = "自定义登录至casdoor")
-    public ResponseEntity<String> login(@RequestBody LoginReq loginReq) {
+    public ResponseData<String> login(@RequestBody LoginReq loginReq) {
         String code = casdoorUserService.login(loginReq);
         String token = authService.getOAuthToken(code, casdoorConfiguration.applicationName);
         String result = "Bearer " + token;
-        return ResponseEntity.ok(result);
+        return ResponseData.success(result);
     }
 
 
-    @GetMapping("/callback")
-    public ResponseEntity<User> callback(@RequestParam("code") String code, @RequestParam("state") String state) {
-        String token = "";
-        User user = null;
-        try {
-            token = authService.getOAuthToken(code, state);
-            user = authService.parseJwtToken(token);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return ResponseEntity.ok(user);
+    @GetMapping("/get-captcha")
+    public ResponseData<String> getCaptcha() {
+        String captcha = casdoorUserService.getCaptcha();
+        return ResponseData.success(captcha);
     }
 
 }
