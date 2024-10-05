@@ -22,15 +22,11 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
-./baseEnvironment/consul/logs/*
-./baseEnvironment/mysql/data/*
-./baseEnvironment/postgres/data/*
-./baseEnvironment/rabbitmq/data/*
-./baseEnvironment/rabbitmq/logs/*
-./baseEnvironment/redis/data/*
-./baseEnvironment/redis/logs/*
-./baseEnvironment/prometheus/data/**
-./baseEnvironment/prometheus/logs/*
-./baseEnvironment/minio/data/*
 .idea/**
 .vscode/**
+**/node_modules/**
+**/dist/**
+**/build/**
+**/data/**
+**/log/**
+
