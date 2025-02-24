@@ -12,6 +12,7 @@
     <modules>
         <module>basic-comment</module>
         <module>web-comment</module>
+        <module>example</module>
     </modules>
 
     <properties>

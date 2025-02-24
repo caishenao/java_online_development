@@ -2,8 +2,5 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/baseEnvironment/rancher/data/management-state/catalog-cache/380859f1003fe7603cddc6c15b34b7263f1f0deaa92ddcde465811d032ee7078" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/baseEnvironment/rancher/data/management-state/catalog-cache/3ef366e1c626c8f4c9e3ea375d3b222b11725066f7852a871fac8d09ba0c72c4" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/baseEnvironment/rancher/data/management-state/catalog-cache/f341cfdfa521a9aa2b993cb34b26bb91b2d173ef1a7df8d41b8921b0e4f82788" vcs="Git" />
   </component>
 </project>

@@ -1,5 +1,6 @@
 package cn.cai.web.comment.aop;
 
+import cn.cai.web.comment.constant.AopConstant;
 import com.alibaba.fastjson2.JSONObject;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,7 +20,7 @@ import org.springframework.stereotype.Component;
 public class LoggerAop {
 
 
-    @Pointcut("execution(* cn.cai.*.controller.*Controller.*(..))")
+    @Pointcut(AopConstant.LOG_EXCEPTION)
     public void logControllerMethods() {
     }
 
@@ -37,7 +38,7 @@ public class LoggerAop {
             result = joinPoint.proceed();
         } catch (Throwable e) {
             log.error("请求方法: {}, 异常: {}", methodName, e.getMessage());
-            throw new RuntimeException(e);
+            throw new RuntimeException(e.getMessage());
         }
         // 5. 执行后日志记录
         log.info("请求方法: {}, 返回值: {}", methodName, JSONObject.toJSONString(result));
