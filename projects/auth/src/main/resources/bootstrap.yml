@@ -1,0 +1,63 @@
+spring:
+  application:
+    name: auth
+  profiles:
+    active: dev
+  cloud:
+    consul:
+      discovery:
+        enabled: true
+        prefer-ip-address: true
+        instance-id: ${spring.application.name}-${spring.profiles.active}-01
+      config:
+        enabled: true
+        name: auth
+        format: yaml
+        profile: ${spring.profiles.active}
+        profile-separator: '-'
+        watch:
+          enabled: true
+          delay: 10000
+      host: localhost
+      port: 8500
+server:
+  port: 30101
+casdoor:
+  application-name: application_manager
+  client-id: appManager
+  client-secret: 60d5c90d4d5d909e376babed714b403d6ab0e7fd
+  server-url: http://localhost:8000
+  organization-name: assetsAanagement
+  endpoint: http://localhost:8000/api
+  certificate: |
+    -----BEGIN CERTIFICATE-----
+    MIIE7zCCAtegAwIBAgIDAeJAMA0GCSqGSIb3DQEBCwUAMDExGTAXBgNVBAoTEGFz
+    c2V0c0FhbmFnZW1lbnQxFDASBgNVBAMMC2NlcnRfYXZncGFpMB4XDTI1MDIxOTEz
+    MTM0NFoXDTQ1MDIxOTEzMTM0NFowMTEZMBcGA1UEChMQYXNzZXRzQWFuYWdlbWVu
+    dDEUMBIGA1UEAwwLY2VydF9hdmdwYWkwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAw
+    ggIKAoICAQCqSpLkCxa7rbUH4Q1gtT5b95BmA+NszvmDUe1NIPcBcxwu2PZBvFJu
+    /Txi1xptUmT6cKjefx6GP7HF2J0kBp7BBzet8vwqiJD0/ShsNpCiXKxjIZIcpF7H
+    Ve6xIbFCSQXGrJBKq+TGCgmH8fNbcVrAzm8YbuNGVvxPWajuN8gYhm4n9QQ+ALNc
+    C2dysOd72VsDEBI2fQeeYvyJoEOu7d5C9SYxmUiuE5TP3oAponpGmPrkTDtlU5iq
+    0CFgwpA2RwSNnm5CFGA6T2GbRljr42Cwx4GfeORVfCO7YM1t81MFxECbdez5/mPc
+    pAW3Y0JtHPDyWOChico5QuYC11NM6ZzvT6pHaYllSv8pOiiVvrGqnZGov0tEnACD
+    d0Egb0lMGRmQj2d58WsMLoTLEC4vKFpLt/9TugExmnnDuWXjC2QO8fr2ptGMsq3C
+    cLpWql77JYtrCiV4PaOLOfl3P18LlFFGfH7psMb90yP9hTejIfQ+GRanl8ZybMY+
+    qe1ww2uQKyQIRMgEspt+leJBnbUe6kkt2mEMrMUFHvW/5Nv274QSrFmV2cIqBaxz
+    EZJvc6KWc1TMiQvA+SzdiZ7SQcGoAoTyUoTs2oB1m7ujK323v0ApygCSkiIcRtUK
+    H5JfsdTaWpctwHVpZUJ4BtuCibjxmQ7SzMEY0xXyrWA4QcvHMhMgbwIDAQABoxAw
+    DjAMBgNVHRMBAf8EAjAAMA0GCSqGSIb3DQEBCwUAA4ICAQAUJaYDIBvBKhS3TCWJ
+    SML4Fho+6POX9UAbm9Yx+qNVh21m82PBpk/eidpHodzanUWIo8qTd1Ua19VPFlKS
+    4TnBjczVymrW+ETJFc9myW+jWvzjXxHcidnpTu3sI06Il41+BLRRTgohaglSAaqK
+    5YLCqXMYpuiC75X0oHZ20vEpfQCgmi/NVCrjll1GnzaI5l55wmXIxoJkBfxL+7Dg
+    MAK+id7qz2pMp7/Dk0UBatACsKPl4o2QxAJK7zSArORm/6wav0MIsJJnSEZKT+1i
+    Ia60LnSPn+NJXgUB89IpJt6W+y6r7jItb0EIUuGt6FqXL8e+nys/HXw3yJWg7hru
+    FzJ6FkoUzz61JoIXhfe6KhktkJxL3zXVHCX4Ld0piiXoaYJ66WZTsfpLJcSEjdSl
+    +r3OVFM7qYuxr6HjYkiYC5zCKwWEfgWEHEwkOlkeiFZiUme1+McbILe7uU1K9uiL
+    7GaWu8nE17KEgRAjLmIKiZHtl4q89dS+wKhQz2GfX9Piek3d+aOXBsFFMuS3x/Br
+    FYOnYL0d54g8nnkoeUUnhPJ2pq3Im+d9Qn/u5pOPsqTMDeAbXNZ09Sefs+p7Z9MH
+    7LhE/yaT0x1FqujQB1Hw0tKydfvTV3wAC6CV+iRdPqA346c4qUwgTf6gleEiT67m
+    NMsV5OpQ5Q0ltjUK8FxdusNvxQ==
+    -----END CERTIFICATE----- 
+    |
+

@@ -5,11 +5,9 @@
     <parent>
         <groupId>cn.cai</groupId>
         <artifactId>basic-registered</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>0.1</version>
     </parent>
-    <groupId>cn.antsev.equipment.core</groupId>
     <artifactId>basic-registered-consul</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <name>basic-registered-consul</name>
     <description>basic-registered-consul</description>
     <dependencies>
@@ -19,19 +17,11 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-consul-discovery</artifactId>
         </dependency>
+
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

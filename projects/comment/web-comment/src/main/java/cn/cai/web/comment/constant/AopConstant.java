@@ -10,6 +10,6 @@ public abstract class AopConstant {
     /**
      * 日志切面
      */
-    public static final String LOG_EXCEPTION = "execution(* cn.cai.*.controller.*Controller.*(..))";
+    public static final String LOG_EXCEPTION = "execution(* cn.cai.**.controller.*Controller.*(..))";
 
 }

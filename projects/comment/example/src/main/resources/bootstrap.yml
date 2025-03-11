@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: example
+  profiles:
+    active: dev
+  cloud:
+    consul:
+      discovery:
+        enabled: true
+        prefer-ip-address: true
+        instance-id: ${spring.application.name}-${spring.profiles.active}-01
+      config:
+        enabled: true
+        name: example
+        format: yaml
+        profile: ${spring.profiles.active}
+        profile-separator: '-'
+        watch:
+          enabled: true
+          delay: 10000
+      host: localhost
+      port: 8500
+server:
+  port: 9001

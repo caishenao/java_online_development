@@ -5,14 +5,13 @@
     <parent>
         <groupId>cn.cai</groupId>
         <artifactId>comment</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>0.1</version>
     </parent>
     <artifactId>web-comment</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <name>web-comment</name>
     <modelVersion>4.0.0</modelVersion>
     <description>web项目基础依赖</description>
-
+    <packaging>jar</packaging>
 
 
     <dependencies>
@@ -38,6 +37,20 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bootstrap</artifactId>
         </dependency>
+
+        <!-- 注册中心 -->
+        <dependency>
+            <groupId>cn.cai</groupId>
+            <artifactId>basic-registered-consul</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.cai</groupId>
+            <artifactId>basic-config-consul</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
         <!-- consul配置 -->
 <!--        <dependency>-->
 <!--            <groupId>org.springframework.cloud</groupId>-->
@@ -49,7 +62,7 @@
 <!--            <artifactId>spring-cloud-starter-consul-discovery</artifactId>-->
 <!--        </dependency>-->
 
-        <!--  -->
+        <!-- 健康服务 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
@@ -72,10 +85,10 @@
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.github.loki4j/loki-logback-appender -->
-        <dependency>
-            <groupId>com.github.loki4j</groupId>
-            <artifactId>loki-logback-appender</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.github.loki4j</groupId>-->
+<!--            <artifactId>loki-logback-appender</artifactId>-->
+<!--        </dependency>-->
 
 
         <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
@@ -109,17 +122,17 @@
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.casbin/casdoor-spring-boot-starter -->
-        <dependency>
-            <groupId>org.casbin</groupId>
-            <artifactId>casdoor-spring-boot-starter</artifactId>
-            <version>1.10.0</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.casbin</groupId>-->
+<!--            <artifactId>casdoor-spring-boot-starter</artifactId>-->
+<!--            <version>1.10.0</version>-->
+<!--        </dependency>-->
         <!-- https://mvnrepository.com/artifact/org.casbin/casdoor-java-sdk -->
-        <dependency>
-            <groupId>org.casbin</groupId>
-            <artifactId>casdoor-java-sdk</artifactId>
-            <version>1.22.1</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.casbin</groupId>-->
+<!--            <artifactId>casdoor-java-sdk</artifactId>-->
+<!--            <version>1.22.1</version>-->
+<!--        </dependency>-->
 
     </dependencies>
 
