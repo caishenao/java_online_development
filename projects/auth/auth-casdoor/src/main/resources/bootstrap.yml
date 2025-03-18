@@ -1,34 +1,40 @@
+server:
+  port: 6100
 spring:
   application:
-    name: auth
+    name: authCasdoor
   profiles:
     active: dev
   cloud:
     consul:
+      host: localhost
+      port: 8500
       discovery:
         enabled: true
         prefer-ip-address: true
-        instance-id: ${spring.application.name}-${spring.profiles.active}-01
+        instance-id: ${spring.application.name}-${spring.profiles.active}-00
+        service-name: ${spring.application.name}
       config:
+        fail-fast: false
         enabled: true
-        name: auth
+        name: ${spring.application.name}
         format: yaml
-        profile: ${spring.profiles.active}
         profile-separator: '-'
         watch:
           enabled: true
           delay: 10000
-      host: localhost
-      port: 8500
-server:
-  port: 30101
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
 casdoor:
-  application-name: application_manager
-  client-id: appManager
-  client-secret: 60d5c90d4d5d909e376babed714b403d6ab0e7fd
-  server-url: http://localhost:8000
+  endpoint: http://localhost:8000
+  client-id: asset_manager
+  client-secret: asset_manager
   organization-name: assetsAanagement
-  endpoint: http://localhost:8000/api
+  application-name: asset_manager
   certificate: |
     -----BEGIN CERTIFICATE-----
     MIIE7zCCAtegAwIBAgIDAeJAMA0GCSqGSIb3DQEBCwUAMDExGTAXBgNVBAoTEGFz
@@ -58,6 +64,5 @@ casdoor:
     FYOnYL0d54g8nnkoeUUnhPJ2pq3Im+d9Qn/u5pOPsqTMDeAbXNZ09Sefs+p7Z9MH
     7LhE/yaT0x1FqujQB1Hw0tKydfvTV3wAC6CV+iRdPqA346c4qUwgTf6gleEiT67m
     NMsV5OpQ5Q0ltjUK8FxdusNvxQ==
-    -----END CERTIFICATE----- 
+    -----END CERTIFICATE-----
     |
-

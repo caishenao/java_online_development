@@ -26,6 +26,8 @@
         <lombok.version>1.18.20</lombok.version>
         <fastjson2.verison>2.0.50</fastjson2.verison>
         <loki.version>1.5.1</loki.version>
+        <casdoor.version>1.15.0</casdoor.version>
+        <reponse.version>5.0.5-boot3</reponse.version>
     </properties>
 
 
@@ -85,6 +87,18 @@
                 <groupId>com.github.loki4j</groupId>
                 <artifactId>loki-logback-appender</artifactId>
                 <version>${loki.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.casbin</groupId>
+                <artifactId>casdoor-spring-boot-starter</artifactId>
+                <version>${casdoor.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.feiniaojin</groupId>
+                <artifactId>graceful-response</artifactId>
+                <version>${reponse.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

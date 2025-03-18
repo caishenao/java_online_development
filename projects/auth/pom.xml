@@ -14,6 +14,7 @@
     <description>认证模块</description>
     <modules>
         <module>auth-api</module>
+        <module>auth-casdoor</module>
     </modules>
 
     <properties>
@@ -22,32 +23,32 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>cn.cai</groupId>
-            <artifactId>web-comment</artifactId>
-            <version>${project.version}</version>
-        </dependency>
+<!--    <dependencies>-->
+<!--        <dependency>-->
+<!--            <groupId>cn.cai</groupId>-->
+<!--            <artifactId>web-comment</artifactId>-->
+<!--            <version>${project.version}</version>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>org.casbin</groupId>
-            <artifactId>casdoor-spring-boot-starter</artifactId>
-            <version>1.15.0</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.casbin</groupId>-->
+<!--            <artifactId>casdoor-spring-boot-starter</artifactId>-->
+<!--            <version>1.15.0</version>-->
+<!--        </dependency>-->
 
-        <!-- https://mvnrepository.com/artifact/org.casbin/casdoor-java-sdk -->
-        <dependency>
-            <groupId>org.casbin</groupId>
-            <artifactId>casdoor-java-sdk</artifactId>
-            <version>1.35.0</version>
-        </dependency>
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.casbin/casdoor-java-sdk &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.casbin</groupId>-->
+<!--            <artifactId>casdoor-java-sdk</artifactId>-->
+<!--            <version>1.35.0</version>-->
+<!--        </dependency>-->
 
-    </dependencies>
+<!--    </dependencies>-->
 
 
 </project>
