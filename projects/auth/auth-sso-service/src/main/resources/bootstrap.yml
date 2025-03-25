@@ -1,0 +1,33 @@
+server:
+  port: 60200
+spring:
+  application:
+    name: authSaToken
+  profiles:
+    active: dev
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        enabled: true
+        prefer-ip-address: true
+        instance-id: ${spring.application.name}-${spring.profiles.active}-00
+        service-name: ${spring.application.name}
+      config:
+        fail-fast: false
+        enabled: true
+        name: ${spring.application.name}
+        format: yaml
+        profile-separator: '-'
+        watch:
+          enabled: true
+          delay: 10000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+

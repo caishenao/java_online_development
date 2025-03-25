@@ -1,37 +1,34 @@
-package cn.cai.auth.casdoor.controller;
+package cn.cai.auth.saToken.controller;
 
-import cn.cai.auth.api.resq.LoginResp;
 import cn.cai.auth.api.resq.UserInfoResp;
-import cn.cai.auth.casdoor.service.impl.UserServiceImpl;
-import cn.cai.web.comment.response.ResponseData;
+import cn.cai.auth.saToken.service.impl.UserServiceImpl;
+import cn.dev33.satoken.util.SaResult;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-import org.casbin.casdoor.entity.User;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 用户接口
+ * 用户管理
  * @author 蔡
  */
 @RestController
 @RequestMapping("/user")
-@Schema(description = "用户接口")
 @RequiredArgsConstructor
+@Tag(description = "用户管理", name = "用户管理")
 public class UserController {
-
 
     private final UserServiceImpl userService;
 
 
-    @GetMapping("/userInfo")
+    @GetMapping("/info")
     @Operation(summary = "获取用户信息")
-    public ResponseData<UserInfoResp> userInfo() {
+    public SaResult info() {
         UserInfoResp userInfo = userService.getUserInfo();
-        return ResponseData.success(userInfo);
+        return SaResult.data(userInfo);
     }
+
 
 }

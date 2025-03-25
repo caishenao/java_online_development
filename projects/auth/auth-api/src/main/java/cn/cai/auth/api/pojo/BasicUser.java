@@ -11,7 +11,7 @@ import lombok.Setter;
 @Schema(description = "抽象用户信息")
 @Setter
 @Getter
-public abstract class AbstractUser {
+public class BasicUser {
 
     @Schema(description = "用户id")
     private String userId;
@@ -24,5 +24,4 @@ public abstract class AbstractUser {
 
     @Schema(description = "手机号")
     private String phone;
-
 }

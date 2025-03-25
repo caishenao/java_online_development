@@ -28,6 +28,9 @@
         <loki.version>1.5.1</loki.version>
         <casdoor.version>1.15.0</casdoor.version>
         <reponse.version>5.0.5-boot3</reponse.version>
+        <saToken.version>1.40.0</saToken.version>
+        <forest.version>1.5.26</forest.version>
+        <hutool.version>5.8.28</hutool.version>
     </properties>
 
 
@@ -99,6 +102,47 @@
                 <groupId>com.feiniaojin</groupId>
                 <artifactId>graceful-response</artifactId>
                 <version>${reponse.version}</version>
+            </dependency>
+
+
+
+            <!-- Sa-Token 权限认证，在线文档：https://sa-token.cc -->
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-spring-boot3-starter</artifactId>
+                <version>${saToken.version}</version>
+            </dependency>
+
+            <!-- Sa-Token 插件：整合SSO -->
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-sso</artifactId>
+                <version>${saToken.version}</version>
+            </dependency>
+
+            <!-- Sa-Token 整合 Redis (使用 jackson 序列化方式) -->
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-redis-jackson</artifactId>
+                <version>${saToken.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+            </dependency>
+
+            <!-- Http请求工具（在模式三的单点注销功能下用到，如不需要可以注释掉） -->
+            <dependency>
+                <groupId>com.dtflys.forest</groupId>
+                <artifactId>forest-spring-boot-starter</artifactId>
+                <version>${forest.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-http</artifactId>
+                <version>${hutool.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

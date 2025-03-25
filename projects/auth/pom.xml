@@ -15,6 +15,7 @@
     <modules>
         <module>auth-api</module>
         <module>auth-casdoor</module>
+        <module>auth-sso-service</module>
     </modules>
 
     <properties>

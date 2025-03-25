@@ -15,6 +15,7 @@
         <module>example</module>
         <module>basic-config</module>
         <module>basic-registered</module>
+        <module>basic-db</module>
     </modules>
 
     <properties>

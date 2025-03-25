@@ -11,7 +11,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @Schema(description = "抽象角色信息")
-public abstract class AbstractRole {
+public class BasicRole {
     @Schema(description = "角色id")
     private String roleId;
 

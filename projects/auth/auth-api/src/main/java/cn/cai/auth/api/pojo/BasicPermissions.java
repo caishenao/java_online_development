@@ -11,7 +11,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @Schema(description = "抽象权限信息")
-public class AbstractPermissions {
+public class BasicPermissions {
 
     @Schema(description = "权限id")
     private String id;
