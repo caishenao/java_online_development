@@ -32,13 +32,14 @@ public class UserServiceImpl implements BasicUserService {
         String loginId = (String)StpUtil.getLoginId();
         log.info("登录id:{}", loginId);
         UserEntity loginUser = userRepository.getById(loginId);
-        UserInfoResp build = UserInfoResp.builder()
-                .userId(loginUser.getId())
-                .username(loginUser.getName())
-                .avatar(loginUser.getAvatar())
-                .phone(loginUser.getPhone())
-                .build();
-        log.info("用户信息:{}", loginUser);
-        return build;
+        UserInfoResp resp = new UserInfoResp();
+        resp.setToken(StpUtil.getTokenValue());
+        resp.setUserId(loginUser.getId());
+        resp.setUsername(loginUser.getName());
+        resp.setAvatar(loginUser.getAvatar());
+        resp.setPhone(loginUser.getPhone());
+        resp.setHome(loginUser.getDefaultHome());
+        log.info("用户信息:{}", resp);
+        return resp;
     }
 }

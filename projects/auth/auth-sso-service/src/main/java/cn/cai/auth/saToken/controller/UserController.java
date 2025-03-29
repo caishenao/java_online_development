@@ -23,7 +23,7 @@ public class UserController {
     private final UserServiceImpl userService;
 
 
-    @GetMapping("/info")
+    @GetMapping("/userInfo")
     @Operation(summary = "获取用户信息")
     public SaResult info() {
         UserInfoResp userInfo = userService.getUserInfo();

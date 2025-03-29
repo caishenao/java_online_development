@@ -9,9 +9,11 @@ import java.util.Collections;
 import java.util.List;
 
 @Data
-@Builder
 @Schema(description = "用户信息")
 public class UserInfoResp {
+
+    @Schema(description = "token")
+    private String token;
 
     /**
      * 用户id
@@ -34,8 +36,6 @@ public class UserInfoResp {
     @Schema(description = "电话")
     private String phone;
 
-    /**
-     * 角色集合
-     */
-    private List<BasicRole> roles = Collections.emptyList();
+    @Schema(description = "用户首页地址")
+    private String home;
 }

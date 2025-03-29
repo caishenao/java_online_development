@@ -27,11 +27,8 @@ public class AuthController {
 
     private final AuthServiceImpl authService;
 
-// 使用@GetMapping注解标记该方法为处理GET请求的方法
     @GetMapping
-// 使用@Operation注解来描述该API的操作摘要，这里摘要为“统一认证地址”
     @Operation(summary = "统一认证地址")
-// 定义一个名为ssoAuth的公共方法，返回类型为Object
     public Object ssoAuth() {
     // 调用SaSsoServerProcessor类的单例实例的ssoAuth方法，并返回其结果
         return SaSsoServerProcessor.instance.ssoAuth();
